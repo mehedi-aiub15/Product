@@ -26,7 +26,7 @@ def product_collection(request):
 @api_view(['GET', 'PUT', 'DELETE'])
 def product_element(request, pk):
     try:
-        product = Product.objects.get(id=pk)
+        product = Product.objects.get(name=pk)
     except Product.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
@@ -65,7 +65,7 @@ def stock_collection(request):
 @api_view(['GET', 'PUT', 'DELETE'])
 def stock_element(request, pk):
     try:
-        stock = Stock.objects.get(product=pk)
+        stock = Stock.objects.get(name=pk)
     except Stock.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
